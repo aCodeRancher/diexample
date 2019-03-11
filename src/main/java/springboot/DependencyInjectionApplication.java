@@ -16,5 +16,10 @@ public class DependencyInjectionApplication {
         GreetingController controller = (GreetingController) ctx.getBean("greetingController");
 
         controller.sayHello();
+
+        /*String[] beanNames = ctx.getBeanDefinitionNames();
+        for (String bn: beanNames){
+            System.out.println("Bean name " + bn);
+        }*/
     }
 }

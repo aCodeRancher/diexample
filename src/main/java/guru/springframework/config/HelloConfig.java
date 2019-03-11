@@ -18,13 +18,21 @@ public class HelloConfig {
         return new HelloWorldFactory();
     }
 
-    @Bean
+    @Bean (name = "englishbean")
     @Profile("english")
-    @Primary
+
     public HelloWorldService helloWorldServiceEnglish(HelloWorldFactory factory){
+
         return factory.createHelloWorldService("en");
     }
 
+    @Bean (name = "englishbeanUS")
+    @Profile("english")
+    @Primary
+    public HelloWorldService helloWorldServiceEnglish1(HelloWorldFactory factory){
+
+        return factory.createHelloWorldService("enUS");
+    }
     @Bean
     @Profile("spanish")
     @Primary
