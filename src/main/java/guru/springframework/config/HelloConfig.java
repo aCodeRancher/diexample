@@ -18,21 +18,21 @@ public class HelloConfig {
         return new HelloWorldFactory();
     }
 
-    @Bean (name = "englishbean")
+    @Bean (name="helloWorldService")
     @Profile("english")
-
+    //@Primary
     public HelloWorldService helloWorldServiceEnglish(HelloWorldFactory factory){
 
         return factory.createHelloWorldService("en");
     }
 
-    @Bean (name = "englishbeanUS")
+   /* @Bean (name = "englishbeanUS")
     @Profile("english")
     @Primary
     public HelloWorldService helloWorldServiceEnglish1(HelloWorldFactory factory){
 
         return factory.createHelloWorldService("enUS");
-    }
+    }*/
     @Bean
     @Profile("spanish")
     @Primary
@@ -40,22 +40,32 @@ public class HelloConfig {
         return factory.createHelloWorldService("es");
     }
 
+    @Bean
+    @Profile("spanish")
+    public HelloWorldService helloWorldServiceSpanish(HelloWorldFactory factory, HelloWorldFactory factory1){
+        return factory.createHelloWorldService("ru");
+    }
+
     @Bean(name = "french")
+
     public HelloWorldService helloWorldServiceFrench(HelloWorldFactory factory){
         return factory.createHelloWorldService("fr");
     }
 
     @Bean
+
     public HelloWorldService helloWorldServiceGerman(HelloWorldFactory factory){
         return factory.createHelloWorldService("de");
     }
 
     @Bean
+    @Profile("polish")
     public HelloWorldService helloWorldServicePolish(HelloWorldFactory factory){
         return factory.createHelloWorldService("pl");
     }
 
     @Bean
+    @Profile("russian")
     public HelloWorldService helloWorldServiceRussian(HelloWorldFactory factory){
         return factory.createHelloWorldService("ru");
     }
